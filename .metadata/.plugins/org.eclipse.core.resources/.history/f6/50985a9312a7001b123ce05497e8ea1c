@@ -1,0 +1,41 @@
+package kr.hs.mirimmarket.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor // 자동으로 모든 매개변수를 받는 생성자를 생성
+@Getter // Getter 생성
+@Setter // Setter 생성
+public class UserDTO {
+	
+	public UserDTO(int seq, String name, String country) {
+		super();
+		this.seq = seq;
+		this.name = name;
+		this.country = country;
+	}
+	
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	private int seq;
+    private String name;
+    private String country;
+}

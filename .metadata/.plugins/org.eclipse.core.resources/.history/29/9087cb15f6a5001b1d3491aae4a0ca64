@@ -1,0 +1,9 @@
+package kr.hs.mirimmarket.dao;
+
+import me.fleuve.springboot03.dto.UserDTO;
+
+import java.util.List;
+
+public interface UserDAO {
+List<UserDTO> selectUsers(UserDTO param) throws Exception;
+}

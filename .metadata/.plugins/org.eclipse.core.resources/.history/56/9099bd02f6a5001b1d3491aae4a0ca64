@@ -1,0 +1,5 @@
+package kr.hs.mirimmarket.dao;
+
+public class UserDAO {
+
+}

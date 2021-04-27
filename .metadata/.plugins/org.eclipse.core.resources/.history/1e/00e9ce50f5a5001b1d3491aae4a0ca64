@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<mapper namespace="org.zerock.mapper.BoardMapper">
+ <!-- 원래 코드 / 파라미터타입에 클래스 풀네임을 작성해줘야함 <insert id="create" parameterType="org.zerock.domain.BoardVO"> insert into tbl_board(BNO, TITLE, CONTENT, WRITER) values(seq_board_bno.nextval, #{title}, #{content}, #{writer}) </insert> --> 
+<!-- 패키지명 생략 가능 --> 
+<insert id="create" parameterType="BoardVO"> 
+insert into tbl_board(BNO, TITLE, CONTENT, WRITER) values(seq_board_bno.nextval, #{title}, #{content}, #{writer}) 
+</insert> 
+</mapper>

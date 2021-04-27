@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.BoardMapper"></mapper>
+
+<configuration>
+    <typeAliases>
+        <package name="com.helloproject.vo"/> //패키지 이름
+    </typeAliases>
+    <mappers>
+        <mapper resource="mapper/BoardMapper.xml"/> //매퍼 위치
+    </mappers>
+</configuration>
+
+
+출처: https://yulfsong.tistory.com/46 [Code Writer]

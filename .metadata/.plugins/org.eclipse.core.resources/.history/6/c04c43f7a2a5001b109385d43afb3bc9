@@ -1,0 +1,45 @@
+package kr.hs.mirimmarket;
+
+import javax.sql.DataSource;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+
+@SpringBootApplication
+public class MirimMarketApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MirimMarketApplication.class, args);
+	}
+	/*
+     * SqlSessionFactory 설정 
+     */
+    
+	@Bean
+    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+        final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource);
+        Resource configLocation = new PathMatchingResourcePatternResolver().getResource("mybatis_config.xml");
+ 
+        sessionFactory.setConfigLocation(configLocation);
+        return sessionFactory.getObject();
+    }
+    // @Bean : 스프링에 필요한 객체를 생성할 때 사용
+    // sessionFactory에 dataSource를 주입하여 Bean으로 사용한다는 의미
+
+	// 만약 프로퍼티스에서도 jsp관련 매핑이 안될경우 
+	  /* @Bean 
+		public InternalResourceViewResolver setupViewResolver() { 
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver(); 
+		
+		resolver.setPrefix("WEB-INF/views/"); 
+		resolver.setSuffix(".jsp"); 
+		return resolver; 
+		}*/
+}

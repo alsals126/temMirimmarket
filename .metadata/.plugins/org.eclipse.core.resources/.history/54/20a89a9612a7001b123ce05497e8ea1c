@@ -1,0 +1,10 @@
+package kr.hs.mirimmarket.dao;
+
+import kr.hs.mirimmarket.dto.UserDTO;
+
+import java.util.List;
+
+public interface UserDAO {
+	List<UserDTO> selectUsers(UserDTO param) throws Exception;
+	
+}

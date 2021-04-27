@@ -1,0 +1,32 @@
+package kr.hs.mirimmarket.controller;
+
+import java.util.List;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.hs.mirimmarket.dao.ProductDAO;
+import kr.hs.mirimmarket.dto.Product;
+
+
+@RestController
+@MapperScan(basePackages ="kr.hs.mirimmarket.dao")
+public class JSPController {
+	
+	@Autowired
+	private ProductDAO productDAO;
+	
+	@RequestMapping("/main")
+	public ModelAndView main(Product vo, Model model) {
+		List<Product> productlist=productDAO.getProductList(vo);
+		
+		return model;
+   }
+}
